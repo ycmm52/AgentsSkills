@@ -51,11 +51,24 @@ Use read-only tools to understand the current codebase:
 - Understand current patterns and conventions
 - Map dependencies and integration points
 
-### Phase 4: Present Implementation Plan
+### Phase 4: Review for Consistency
+
+Based on the proposed changes identified in Phase 3, analyze what other parts of the codebase should be updated to maintain consistency:
+
+- **Pattern consistency:** If modifying a pattern used elsewhere, identify all instances that should follow the same change
+- **Naming conventions:** If renaming or adding new conventions, find related code that should align
+- **API contracts:** If changing interfaces, identify all callers and implementers affected
+- **Documentation:** If behavior changes, identify docs, comments, or examples needing updates
+- **Tests:** If modifying functionality, identify test files beyond unit tests (integration, e2e) that may need updates
+- **Configuration:** If adding new config options, check for similar patterns in other config files
+
+**Output:** List of additional files/areas requiring changes for consistency, grouped by category.
+
+### Phase 5: Present Implementation Plan
 
 Create a structured plan with ALL sections below (no exceptions):
 
-#### 4.1 High-Level Summary (MANDATORY)
+#### 5.1 High-Level Summary (MANDATORY)
 
 Provide a concise summary of what will be changed:
 
@@ -63,7 +76,7 @@ Provide a concise summary of what will be changed:
 - Key components affected
 - Expected impact on the system
 
-#### 4.2 Before/After Comparison (MANDATORY)
+#### 5.2 Before/After Comparison (MANDATORY)
 
 Create a comparison table showing behavioral differences:
 
@@ -74,7 +87,7 @@ Create a comparison table showing behavioral differences:
 
 For simple changes, the table may have fewer rows but MUST exist.
 
-#### 4.3 ASCII Flow Chart (MANDATORY)
+#### 5.3 ASCII Flow Chart (MANDATORY)
 
 **ALWAYS use ASCII flow charts. Do NOT use mermaid diagrams.**
 
@@ -115,7 +128,7 @@ graph TD
 
 ❌ WRONG: Do NOT use mermaid syntax. Use ASCII box drawing: ┌─┐ └─┘ │ ▶ ▼
 
-#### 4.4 Files to Modify/Create (MANDATORY)
+#### 5.4 Files to Modify/Create (MANDATORY)
 
 List all files that will be touched:
 
@@ -123,7 +136,7 @@ List all files that will be touched:
 - **Modify:** Existing files with brief description of changes
 - **Delete:** Files to be removed (if any)
 
-#### 4.5 Implementation Tasks (MANDATORY)
+#### 5.5 Implementation Tasks (MANDATORY)
 
 **REQUIRED FIRST STEP:** Invoke test-driven-development skill to learn TDD best practices.
 
@@ -174,7 +187,7 @@ Run: `pytest tests/path/test.py::test_name -v`
 Expected: PASS
 ```
 
-### Phase 5: Request Approval
+### Phase 6: Request Approval
 
 After presenting the plan, explicitly state:
 
@@ -189,7 +202,7 @@ To proceed, please:
 
 ---
 
-### Phase 6: Execution Handoff
+### Phase 7: Execution Handoff
 
 **Announce:** "Plan approved. Ready for execution."
 
@@ -212,7 +225,7 @@ To proceed, please:
 
 ## Important Constraints
 
-- Use ONLY read-only tools during planning phase (Phases 1-4)
+- Use ONLY read-only tools during planning phase (Phases 1-5)
 - Do not create, modify, or delete any files until user approves
 - Do not execute any commands that change system state during planning
 - Wait for explicit approval before any implementation
